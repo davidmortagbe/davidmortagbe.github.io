@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Blessed Mortagbe | Data Analyst & Systems Administrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF6;
+    --ink:#1B1D1F;
+    --muted:#5C6167;
+    --muted-2:#9297A0;
+    --accent:#2C4A9E;
+    --accent-soft:#EDF0FA;
+    --line:#E4E2DA;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  ::selection{background:var(--accent-soft);color:var(--accent);}
+
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .serif{font-family:'Fraunces',serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+
+  /* underline-on-hover link style used throughout */
+  .u-link{
+    position:relative;
+    color:var(--ink);
+    padding-bottom:1px;
+  }
+  .u-link::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-1px;
+    width:100%;height:1px;
+    background:var(--muted-2);
+    transform:scaleX(1);
+    transform-origin:left;
+  }
+  .u-link.accent{color:var(--accent);}
+  .u-link.accent::after{background:var(--accent);}
+  .u-link:hover::after{background:var(--accent);}
+  .u-link:hover{color:var(--accent);}
+
+  /* ---------- NAV ---------- */
+  header{
+    padding:36px 0 0;
+  }
+  nav{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    font-weight:500;
+  }
+  .nav-links{
+    display:flex;
+    gap:26px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .nav-links a{transition:color .15s ease;}
+  .nav-links a:hover{color:var(--accent);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 0 56px;
+    display:flex;
+    gap:28px;
+    align-items:flex-start;
+  }
+  @media (max-width:560px){.hero{flex-direction:column;align-items:flex-start;}}
+
+  .avatar{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    flex-shrink:0;
+  }
+
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    margin-bottom:12px;
+  }
+
+  .hero h1{
+    font-size:clamp(28px, 4vw, 38px);
+    line-height:1.2;
+    margin-bottom:16px;
+  }
+
+  .hero p.lede{
+    color:var(--muted);
+    font-size:16px;
+    max-width:560px;
+    margin-bottom:20px;
+  }
+
+  .hero-links{
+    display:flex;
+    gap:20px;
+    font-size:14px;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:44px 0;}
+  .rule{height:1px;background:var(--line);}
+
+  .eyebrow-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:20px;
+  }
+
+  section h2{font-size:23px;margin-bottom:22px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .service-row{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:20px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .service-row:last-child{border-bottom:1px solid var(--line);}
+  @media (max-width:560px){
+    .service-row{grid-template-columns:1fr;gap:6px;}
+  }
+  .service-row h3{font-size:16.5px;font-weight:500;}
+  .service-row p{color:var(--muted);font-size:14.5px;}
+
+  /* ---------- ABOUT ---------- */
+  .about p{color:var(--muted);margin-bottom:16px;font-size:15.5px;max-width:620px;}
+  .about strong{color:var(--ink);font-weight:600;}
+
+  .facts{
+    margin-top:28px;
+  }
+  .fact-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .facts .fact-row:last-child{border-bottom:1px solid var(--line);}
+  .fact-row .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    white-space:nowrap;
+  }
+  .fact-row .v{color:var(--ink);text-align:right;}
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    padding:30px 0;
+    border-top:1px solid var(--line);
+  }
+  .project:last-child{border-bottom:1px solid var(--line);}
+
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+  .project h3{font-size:19px;font-weight:500;}
+
+  .project-meta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-bottom:12px;
+  }
+
+  .project p{color:var(--muted);font-size:14.5px;max-width:640px;margin-bottom:14px;}
+  .project p strong{color:var(--ink);font-weight:600;}
+
+  .project-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+  }
+  .project-link.pending{color:var(--muted-2);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 64px;}
+  footer h2{font-size:24px;max-width:480px;line-height:1.35;margin-bottom:28px;}
+
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:40px;
+  }
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    color:var(--muted);
+    display:inline-flex;
+    width:fit-content;
+    transition:color .15s ease;
+  }
+  .contact-links a:hover{color:var(--accent);}
+
+  .foot-bottom{
+    font-size:12.5px;
+    color:var(--muted-2);
+    font-family:'IBM Plex Mono',monospace;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">David Mortagbe</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="avatar">DM</div>
+    <div>
+      <div class="hero-eyebrow">Data Analyst · Systems Administrator · Accra, Ghana</div>
+      <h1 class="serif">Hi, I'm David.</h1>
+      <p class="lede">I turn operational and financial data into dashboards, systems, and reports that businesses rely on daily. As a Systems Administrator at Clozar Group, I support logistics and fintech operations across Ghana and Nigeria, and I am sharpening my analytics capability further through the Generation Ghana Data Analyst Programme.</p>
+      <div class="hero-links">
+        <a class="u-link accent" href="#projects">View my work</a>
+        <a class="u-link" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ================= WHAT I DO ================= -->
+  <section id="services">
+    <div class="eyebrow-label">What I do</div>
+    <div class="services">
+      <div class="service-row">
+        <h3>Data Analysis</h3>
+        <p>Excel, SQL, and Power BI work that turns raw operational data into dashboards and decisions, built from cleaning messy datasets through to the queries and visuals behind them.</p>
+      </div>
+      <div class="service-row">
+        <h3>Systems Administration</h3>
+        <p>End-to-end support for logistics and fintech platforms, covering infrastructure, client-facing systems, and the day-to-day reliability that keeps operations running.</p>
+      </div>
+      <div class="service-row">
+        <h3>Process &amp; Reporting</h3>
+        <p>Building the tracking systems, spreadsheets, and reports that didn't exist before, designed to hold up under real, daily use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="eyebrow-label">About</div>
+    <div class="about">
+      <p>David is a data-driven operations professional with hands-on experience spanning systems administration, financial platform support, and business intelligence. At Clozar Group, he manages critical infrastructure for DHL logistics and Ship &amp; Pay, a fintech platform operating across Ghana and Nigeria, while also taking on cross-border training, client account management, and product input well beyond his original job description.</p>
+      <p>His analytical work translates directly into measurable business value. He has built dashboards that surfaced a 37.8% repeat-customer rate for a tourism business, designed an Excel-based tracking system now used to record over GHS 5 million in combined sales and purchases, and produced workforce intelligence reporting for an organization of roughly 20,000 employees. He pairs technical fluency in SQL, Power BI, and Excel with the operational judgment of someone who has run systems, not just analyzed them.</p>
+      <p>He is now seeking data analyst, IT operations, or client relationship management roles where that combination, technical skill matched with real operational experience, can drive measurable outcomes.</p>
+    </div>
+
+    <div class="facts">
+      <div class="fact-row"><span class="k">Role</span><span class="v">Systems Administrator, Clozar Group</span></div>
+      <div class="fact-row"><span class="k">Based in</span><span class="v">Accra, Ghana</span></div>
+      <div class="fact-row"><span class="k">Training</span><span class="v">Generation Ghana, Data Analyst Programme</span></div>
+      <div class="fact-row"><span class="k">Target roles</span><span class="v">Data Analyst · IT Operations · Relationship Management</span></div>
+      <div class="fact-row"><span class="k">Tools</span><span class="v">Excel · SQL · Power BI · Python</span></div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="eyebrow-label">Selected work</div>
+    <h2 class="serif">Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="serif">Ghana Adventures: Tourism Analytics Dashboard</h3>
+      </div>
+      <div class="project-meta">Excel · MySQL · Power BI · DAX</div>
+      <p><strong>Problem:</strong> A 233-booking tourism dataset needed to go from raw records to insight the business could act on. <strong>What I did:</strong> Cleaned and modeled the data in Excel, queried it in MySQL, then built a Power BI dashboard around it. <strong>Result:</strong> Uncovered a 37.8% repeat-customer rate and identified Mole National Park as the top-booked destination, findings I defended live in a mock interview.</p>
+      <!-- Links directly to the exported dashboard PDF, upload it alongside index.html -->
+      <a class="project-link u-link accent" href="ghana-adventures-dashboard.pdf" target="_blank" rel="noopener">View dashboard (PDF) →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="serif">Roblox Africa: Workforce Intelligence Report</h3>
+      </div>
+      <div class="project-meta">Power BI · Group Capstone</div>
+      <p><strong>Problem:</strong> Leadership needed visibility into workforce composition, performance, and cost across an organization of roughly 20,000 employees. <strong>What I did:</strong> Worked with a team to build Power BI dashboards analyzing headcount, department performance, education fit, and compensation. <strong>Result:</strong> A report surfacing patterns like department-level performance gaps and close to GHS 105M in tracked active-employee costs.</p>
+      <a class="project-link u-link accent" href="roblox-africa-workforce-report.pdf" target="_blank" rel="noopener">View report (PDF) →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="serif">Retail Analytics with SQL: FreshMart Ghana</h3>
+      </div>
+      <div class="project-meta">SQL · Joins · Subqueries</div>
+      <p><strong>Problem:</strong> A retail dataset covering customers, orders, products, and returns needed to be queried for business-relevant patterns, not just correct syntax. <strong>What I did:</strong> Wrote joins, subqueries, and aggregate queries to analyze spending, loyalty tiers, and returns. <strong>Result:</strong> Found that Gold-tier customers, just 5 of 15, drove 80% of revenue, and that returns were concentrated in two products, accounting for 12.7% of total refunds.</p>
+      <a class="project-link u-link accent" href="freshmart-sql-analysis.sql" target="_blank" rel="noopener">View queries &amp; results →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="serif">Sales &amp; Purchase Tracking System: Posadabelle</h3>
+      </div>
+      <div class="project-meta">Excel · Database Design · Operations</div>
+      <p><strong>Problem:</strong> Sales, deliveries, and payments were tracked only in phone notes, with no structure, no history, and records easy to lose. <strong>What I did:</strong> Designed a multi-sheet Excel system with dedicated workbooks for sales, deliveries (local and international), orders, returns, and payments. <strong>Result:</strong> Over GHS 2.5M in tracked sales during promotion seasons and GHS 3M+ in regular purchases. The system is still in daily use today.</p>
+      <span class="project-link pending mono">In active use, not publicly linkable</span>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="serif">Advanced Grouping &amp; Aggregation in Pandas</h3>
+      </div>
+      <div class="project-meta">Python · Pandas · Coursework</div>
+      <p>A hands-on exercise using pandas to explore multi-level grouping and custom aggregation, grouping sales data by city and category, then building tailored metrics with <code>.agg()</code> beyond simple <code>.sum()</code> or <code>.mean()</code> calls.</p>
+      <a class="project-link u-link accent" href="Advanced_Grouping_and_Aggregation_Activity.ipynb" target="_blank" rel="noopener">View notebook →</a>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <footer id="contact">
+    <div class="eyebrow-label">Get in touch</div>
+    <h2 class="serif">Open to data analyst, IT operations, and relationship management roles across Ghana and beyond.</h2>
+    <div class="contact-links">
+      <a href="mailto:mortagbedavid@gmail.com">mortagbedavid@gmail.com</a>
+      <a href="https://www.linkedin.com/in/david-mortagbe" target="_blank" rel="noopener">linkedin.com/in/david-mortagbe</a>
+      <a href="https://github.com/davidmortagbe" target="_blank" rel="noopener">github.com/davidmortagbe</a>
+    </div>
+    <div class="foot-bottom">David Blessed Mortagbe, Accra, Ghana</div>
+  </footer>
+
+</main>
+
+</body>
+</html>
